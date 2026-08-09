@@ -1,0 +1,285 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
+
+@import "tailwindcss";
+
+/* ============================================================
+   方舟像素字体（ark-pixel-12px，OFL 开源）
+   latin 分片：英文/数字（unicode-range 命中时优先用）
+   中文主字体：覆盖其余字符
+   ============================================================ */
+@font-face {
+  font-family: 'ark-pixel-12px';
+  src: url('/fonts/ark-pixel-12px-latin.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0000-007F;
+}
+@font-face {
+  font-family: 'ark-pixel-12px';
+  src: url('/fonts/ark-pixel-12px.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ============================================================
+   CSS 变量 —— 像素比格犬（唯一主题：亮色暖底 + 比格棕 + 草地绿）
+   ============================================================ */
+:root {
+  --bg-deep: #fdf6e3;
+  --bg-card: #fff8e7;
+  --border-glow: #b8743a;
+  --purple: #b8743a;
+  --cyan: #6ab04c;
+  --orange: #e8a33d;
+  --text-primary: #3d2817;
+  --text-muted: #8b6f47;
+  --font-display: 'ark-pixel-12px', 'JetBrains Mono', 'Courier New', monospace;
+  --confetti-1: #b8743a;
+  --confetti-2: #6ab04c;
+  --confetti-3: #e8a33d;
+  --confetti-4: #fff8e7;
+}
+
+/* 全局重置 */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-deep);
+  color: var(--text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  /* 像素网格背景 */
+  background-image:
+    linear-gradient(color-mix(in srgb, var(--border-glow) 9%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--border-glow) 9%, transparent) 1px, transparent 1px);
+  background-size: 24px 24px;
+  background-position: -1px -1px;
+}
+
+#root {
+  width: 100%;
+  min-height: 100svh;
+}
+
+/* 标题字体（方舟像素）*/
+.font-mono-display {
+  font-family: var(--font-display);
+}
+
+/* 滚动条：像素方块、无圆角、棕色 */
+::-webkit-scrollbar {
+  width: 12px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-deep);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--purple);
+  border-radius: 0;
+  border: 2px solid var(--bg-deep);
+}
+
+/* 渐变文字 */
+.text-gradient-purple {
+  background: linear-gradient(135deg, var(--purple), var(--cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-warm {
+  background: linear-gradient(135deg, var(--orange), var(--purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* 像素硬描边文字（叠在图背景上保清晰）*/
+.text-pixel-stroke {
+  -webkit-text-stroke: 5px var(--bg-card);
+  paint-order: stroke fill;
+  /* 泡泡光泽感：顶部硬白高光 + 底部微阴影 + 外柔光 */
+  text-shadow:
+    0 -2px 0 rgba(255, 255, 255, 0.45),
+    0 2px 0 rgba(0, 0, 0, 0.12),
+    0 0 10px rgba(255, 248, 231, 0.4);
+}
+
+/* 像素卡：实色方块 + 硬边框 + 硬阴影 */
+.glass-card {
+  background: var(--bg-card);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border: 2px solid var(--border-glow);
+  border-radius: 4px;
+  box-shadow: 4px 4px 0 color-mix(in srgb, var(--border-glow) 80%, transparent);
+}
+
+/* 硬阴影（替代霓虹光晕）*/
+.neon-glow-purple,
+.neon-glow-cyan {
+  box-shadow: 4px 4px 0 color-mix(in srgb, var(--border-glow) 60%, transparent);
+}
+
+/* 星点闪烁（感谢信背景点缀）*/
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 0.8; }
+}
+
+/* 光标闪烁（打字机）*/
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.cursor-blink::after {
+  content: '▮';
+  animation: blink 1s step-end infinite;
+  color: var(--cyan);
+  margin-left: 2px;
+}
+
+.cursor-blink-done::after {
+  content: '';
+}
+
+/* 3D 翻转卡片 */
+.flip-card {
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 4px;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+
+/* 编辑模式下禁用翻转动画 */
+[data-edit-mode="true"].flip-card:hover .flip-card-inner {
+  transform: none !important;
+}
+
+/* prefers-reduced-motion 降级 */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .flip-card:hover .flip-card-inner {
+    transform: none;
+  }
+}
+
+/* 像素图片硬边 */
+img.pixel-art,
+img.beagle-mascot {
+  image-rendering: pixelated;
+}
+
+/* ============================================================
+   Loading 像素场景动画
+   ============================================================ */
+@keyframes beagle-bounce {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-8px) rotate(2deg); }
+}
+@keyframes beagle-tail {
+  0%, 100% { transform: rotate(-15deg); }
+  50% { transform: rotate(15deg); }
+}
+@keyframes beagle-blink {
+  0%, 92%, 100% { transform: scaleY(1); }
+  96% { transform: scaleY(0.1); }
+}
+@keyframes sun-rotate {
+  from { transform: rotate(0); }
+  to { transform: rotate(360deg); }
+}
+@keyframes balloon-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+@keyframes grass-sway {
+  0%, 100% { transform: skewX(0deg); }
+  50% { transform: skewX(3deg); }
+}
+@keyframes cloud-drift {
+  from { transform: translateX(0); }
+  to { transform: translateX(40px); }
+}
+@keyframes bubble-rise {
+  0% { transform: translateY(0) scale(1); opacity: 0.7; }
+  80% { opacity: 0.5; }
+  100% { transform: translateY(-60vh) scale(0.6); opacity: 0; }
+}
+@keyframes flower-sway {
+  0%, 100% { transform: rotate(-6deg); }
+  50% { transform: rotate(6deg); }
+}
+@keyframes shooting {
+  0% { transform: translate(0, 0); opacity: 0; }
+  4% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translate(-420px, 220px); opacity: 0; }
+}
+@keyframes butterfly-flutter {
+  0%, 100% { transform: translate(0, 0) rotate(-4deg); }
+  25% { transform: translate(10px, -8px) rotate(4deg); }
+  50% { transform: translate(20px, 4px) rotate(-4deg); }
+  75% { transform: translate(10px, -6px) rotate(4deg); }
+}
+@keyframes float-up {
+  0% { transform: translateY(0) rotate(0); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(-65vh) rotate(360deg); opacity: 0; }
+}
+@keyframes heart-float {
+  0% { transform: translateY(0) scale(0.5); opacity: 1; }
+  100% { transform: translateY(-50px) scale(1.2); opacity: 0; }
+}
+@keyframes bubble-danmaku {
+  0%   { transform: translate(-30vw, 0); opacity: 0; }
+  8%   { opacity: 1; }
+  25%  { transform: translate(10vw, -14px); }
+  50%  { transform: translate(40vw, 12px); }
+  75%  { transform: translate(70vw, -10px); }
+  88%  { opacity: 1; }
+  100% { transform: translate(100vw, 0); opacity: 0; }
+}

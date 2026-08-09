@@ -1,0 +1,168 @@
+<h2>比格犬「萌化」走哪条路？</h2>
+<p class="subtitle">3 个方向长相完全不同 —— 都用网站配色（米黄/棕/绿/橙），都带轻微蹦跳。点选最对眼的，或告诉我哪里要改。</p>
+
+<style>
+  .beagle-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:18px; margin-top:18px; }
+  .beagle-grid .card-image { background:linear-gradient(to bottom,#d4e8ff 0%,#fdf6e3 70%,#7cc05c 100%); display:flex; align-items:center; justify-content:center; padding:18px 0; min-height:200px; }
+  .beagle-grid .card-image svg { animation:bob 1.6s ease-in-out infinite; }
+  @keyframes bob { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+  .beagle-grid .ref-card { grid-column:1/-1; }
+  .beagle-grid .ref-card .card-image { min-height:150px; opacity:0.85; }
+  .tag { display:inline-block; font-size:11px; padding:2px 8px; border-radius:999px; margin-left:6px; vertical-align:middle; }
+  .tag-keep { background:rgba(106,176,76,0.2); color:#4a8c35; }
+  .tag-break { background:rgba(232,116,58,0.18); color:#e8743a; }
+</style>
+
+<div class="beagle-grid">
+
+  <!-- 现状参考 -->
+  <div class="card ref-card" style="cursor:default">
+    <div class="card-image">
+      <svg width="180" height="135" viewBox="0 0 320 240">
+        <rect x="176" y="148" width="6" height="16" fill="#b8743a"/>
+        <rect x="118" y="150" width="60" height="40" fill="#fff8e7" stroke="#b8743a" stroke-width="2"/>
+        <rect x="123" y="155" width="22" height="30" fill="#b8743a"/>
+        <rect x="124" y="186" width="10" height="14" fill="#b8743a"/>
+        <rect x="164" y="186" width="10" height="14" fill="#b8743a"/>
+        <rect x="92" y="128" width="42" height="36" fill="#b8743a"/>
+        <rect x="89" y="134" width="10" height="24" fill="#9c5a28"/>
+        <rect x="128" y="134" width="10" height="24" fill="#9c5a28"/>
+        <rect x="98" y="138" width="32" height="24" fill="#fff8e7"/>
+        <rect x="104" y="146" width="8" height="2" fill="#3d2817"/>
+        <rect x="120" y="146" width="8" height="2" fill="#3d2817"/>
+        <rect x="110" y="154" width="10" height="4" fill="#3d2817"/>
+        <rect x="112" y="158" width="6" height="2" fill="#e8a33d"/>
+      </svg>
+    </div>
+    <div class="card-body">
+      <h3>现状（侧身·僵硬方块）</h3>
+      <p>当前的版本：纯矩形硬拼、侧身、眼睛是细横线、没表情。参考用，不用选。</p>
+    </div>
+  </div>
+
+  <!-- 方向 A -->
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <svg width="150" height="170" viewBox="0 0 160 180">
+        <!-- 尾巴 -->
+        <rect x="112" y="116" width="9" height="16" fill="#b8743a" transform="rotate(20 116 124)"/>
+        <!-- 身体 -->
+        <rect x="52" y="110" width="56" height="42" fill="#fff8e7" stroke="#b8743a" stroke-width="2"/>
+        <rect x="58" y="118" width="20" height="26" fill="#b8743a"/>
+        <!-- 腿 -->
+        <rect x="58" y="150" width="13" height="16" fill="#b8743a"/>
+        <rect x="89" y="150" width="13" height="16" fill="#b8743a"/>
+        <!-- 耳朵 -->
+        <rect x="22" y="46" width="22" height="52" fill="#9c5a28"/>
+        <rect x="116" y="46" width="22" height="52" fill="#9c5a28"/>
+        <!-- 头顶棕帽 -->
+        <rect x="42" y="30" width="76" height="26" fill="#b8743a"/>
+        <!-- 脸 -->
+        <rect x="42" y="56" width="76" height="52" fill="#fff8e7" stroke="#b8743a" stroke-width="2"/>
+        <!-- 胖脸颊 -->
+        <rect x="34" y="80" width="8" height="22" fill="#fff8e7" stroke="#b8743a" stroke-width="2"/>
+        <rect x="118" y="80" width="8" height="22" fill="#fff8e7" stroke="#b8743a" stroke-width="2"/>
+        <!-- 眼睛 + 高光 -->
+        <rect x="60" y="66" width="14" height="16" fill="#3d2817"/>
+        <rect x="64" y="68" width="4" height="4" fill="#fff8e7"/>
+        <rect x="86" y="66" width="14" height="16" fill="#3d2817"/>
+        <rect x="90" y="68" width="4" height="4" fill="#fff8e7"/>
+        <!-- 腮红 -->
+        <rect x="48" y="86" width="10" height="6" fill="#d68bb0"/>
+        <rect x="102" y="86" width="10" height="6" fill="#d68bb0"/>
+        <!-- 鼻子 -->
+        <rect x="73" y="86" width="14" height="7" fill="#3d2817"/>
+        <rect x="76" y="88" width="4" height="2" fill="#e8a33d"/>
+        <!-- 嘴 + 舌头 -->
+        <rect x="73" y="93" width="14" height="3" fill="#3d2817"/>
+        <rect x="77" y="96" width="6" height="6" fill="#e8743a"/>
+      </svg>
+    </div>
+    <div class="card-body">
+      <h3>A · 精细像素（正面 Q 版）<span class="tag tag-keep">保留像素风</span></h3>
+      <p>还是方块拼，但：转正面、头大身小、大眼睛带高光、加腮红和吐舌、胖脸颊。最贴合网站像素主题。</p>
+    </div>
+  </div>
+
+  <!-- 方向 B -->
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <svg width="150" height="170" viewBox="0 0 160 180">
+        <!-- 极小身体 -->
+        <rect x="58" y="124" width="44" height="30" fill="#fff8e7" stroke="#b8743a" stroke-width="2"/>
+        <rect x="62" y="130" width="14" height="18" fill="#b8743a"/>
+        <rect x="62" y="152" width="11" height="14" fill="#b8743a"/>
+        <rect x="87" y="152" width="11" height="14" fill="#b8743a"/>
+        <!-- 巨大耳朵 -->
+        <rect x="14" y="34" width="26" height="64" fill="#9c5a28"/>
+        <rect x="120" y="34" width="26" height="64" fill="#9c5a28"/>
+        <!-- 巨大脑袋 -->
+        <rect x="34" y="18" width="92" height="30" fill="#b8743a"/>
+        <rect x="34" y="48" width="92" height="66" fill="#fff8e7" stroke="#b8743a" stroke-width="2"/>
+        <rect x="22" y="76" width="12" height="30" fill="#fff8e7" stroke="#b8743a" stroke-width="2"/>
+        <rect x="126" y="76" width="12" height="30" fill="#fff8e7" stroke="#b8743a" stroke-width="2"/>
+        <!-- 超大眼睛 + 双高光 -->
+        <rect x="54" y="60" width="20" height="22" fill="#3d2817"/>
+        <rect x="58" y="63" width="6" height="6" fill="#fff8e7"/>
+        <rect x="68" y="63" width="3" height="3" fill="#fff8e7"/>
+        <rect x="86" y="60" width="20" height="22" fill="#3d2817"/>
+        <rect x="90" y="63" width="6" height="6" fill="#fff8e7"/>
+        <rect x="100" y="63" width="3" height="3" fill="#fff8e7"/>
+        <!-- 腮红 -->
+        <rect x="40" y="88" width="14" height="7" fill="#d68bb0"/>
+        <rect x="106" y="88" width="14" height="7" fill="#d68bb0"/>
+        <!-- 小鼻子 + 微笑嘴 -->
+        <rect x="70" y="88" width="20" height="8" fill="#3d2817"/>
+        <rect x="74" y="90" width="4" height="2" fill="#e8a33d"/>
+        <rect x="76" y="96" width="8" height="3" fill="#3d2817"/>
+        <rect x="80" y="99" width="4" height="5" fill="#e8743a"/>
+      </svg>
+    </div>
+    <div class="card-body">
+      <h3>B · 超级 Q 版大头<span class="tag tag-keep">保留像素风</span></h3>
+      <p>把 A 推到极致：头占一大半、身体缩成一小坨、超大眼睛双高光。最萌，但偏「日系 Q 版娃娃」感。</p>
+    </div>
+  </div>
+
+  <!-- 方向 C -->
+  <div class="card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <svg width="150" height="170" viewBox="0 0 160 180">
+        <!-- 尾巴 -->
+        <ellipse cx="118" cy="118" rx="6" ry="11" fill="#b8743a" transform="rotate(25 118 118)"/>
+        <!-- 身体 -->
+        <ellipse cx="80" cy="130" rx="32" ry="26" fill="#fff8e7" stroke="#b8743a" stroke-width="2.5"/>
+        <ellipse cx="70" cy="134" rx="12" ry="16" fill="#b8743a"/>
+        <!-- 腿 -->
+        <rect x="60" y="150" width="13" height="16" rx="4" fill="#b8743a"/>
+        <rect x="87" y="150" width="13" height="16" rx="4" fill="#b8743a"/>
+        <!-- 耳朵（垂耳曲线） -->
+        <path d="M 40 52 Q 20 60 24 92 Q 30 104 46 98 Q 50 76 52 56 Z" fill="#9c5a28"/>
+        <path d="M 120 52 Q 140 60 136 92 Q 130 104 114 98 Q 110 76 108 56 Z" fill="#9c5a28"/>
+        <!-- 头 -->
+        <ellipse cx="80" cy="64" rx="46" ry="42" fill="#fff8e7" stroke="#b8743a" stroke-width="2.5"/>
+        <!-- 头顶棕帽 -->
+        <path d="M 36 56 Q 40 24 80 24 Q 120 24 124 56 Q 100 46 80 46 Q 60 46 36 56 Z" fill="#b8743a"/>
+        <!-- 眼睛（大圆+高光） -->
+        <circle cx="62" cy="66" r="9" fill="#3d2817"/>
+        <circle cx="65" cy="63" r="3.5" fill="#fff8e7"/>
+        <circle cx="98" cy="66" r="9" fill="#3d2817"/>
+        <circle cx="101" cy="63" r="3.5" fill="#fff8e7"/>
+        <!-- 腮红 -->
+        <ellipse cx="48" cy="80" rx="7" ry="4" fill="#d68bb0"/>
+        <ellipse cx="112" cy="80" rx="7" ry="4" fill="#d68bb0"/>
+        <!-- 鼻子 -->
+        <ellipse cx="80" cy="78" rx="7" ry="5" fill="#3d2817"/>
+        <ellipse cx="78" cy="76" rx="2" ry="1.5" fill="#e8a33d"/>
+        <!-- 微笑嘴 + 舌头 -->
+        <path d="M 72 86 Q 80 94 88 86" stroke="#3d2817" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <path d="M 78 90 Q 80 98 82 90 Z" fill="#e8743a"/>
+      </svg>
+    </div>
+    <div class="card-body">
+      <h3>C · 平滑曲线（贴纸风）<span class="tag tag-break">不再用方块</span></h3>
+      <p>放弃方块，用圆弧/椭圆画：圆脑袋、大圆眼、垂耳曲线、微笑。最软最萌最精致，但脱离了网站像素主题。</p>
+    </div>
+  </div>
+
+</div>
