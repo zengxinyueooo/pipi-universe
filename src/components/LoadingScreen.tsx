@@ -319,10 +319,10 @@ export default function LoadingScreen({ onDone }: LoadingScreenProps) {
           {/* 朦胧暖光蒙版（背景柔化，温馨治愈）*/}
           <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at 50% 45%, rgba(255,248,231,0.38) 0%, rgba(255,240,230,0.16) 50%, transparent 82%)' }} />
 
-          {/* 比格犬（居中放大，整体蹦跳）—— 用 beagle-hero.png，单张图整体动，无法局部摇尾 */}
+          {/* 比格犬（居中放大，整体蹦跳）—— Loading 专用透明版 beagle-loading.png */}
           <div className="absolute inset-0 flex items-center justify-center" style={{ paddingBottom: '4%' }}>
             <img
-              src="/beagle-hero.png"
+              src="/beagle-loading.png"
               alt="皮皮比格犬"
               style={{
                 maxHeight: '42vh',
