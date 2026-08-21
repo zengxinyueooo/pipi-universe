@@ -6,7 +6,7 @@ export default function HeroSection() {
     <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden px-6">
       {/* 比格犬主图（铺满背景，略淡）*/}
       <img
-        src="/beagle-hero.png"
+        src="/beagle-hero.webp"
         alt="皮皮比格犬"
         className="absolute inset-0 w-full h-full object-cover pointer-events-none"
         style={{ opacity: 0.3 }}

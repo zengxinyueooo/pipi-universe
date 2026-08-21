@@ -322,7 +322,7 @@ export default function LoadingScreen({ onDone }: LoadingScreenProps) {
           {/* 比格犬（居中放大，整体蹦跳）—— Loading 专用透明版 beagle-loading.png */}
           <div className="absolute inset-0 flex items-center justify-center" style={{ paddingBottom: '4%' }}>
             <img
-              src="/beagle-loading.png"
+              src="/beagle-loading.webp"
               alt="皮皮比格犬"
               style={{
                 maxHeight: '42vh',
